@@ -12,7 +12,7 @@ public class main {
 		// TODO Auto-generated method stub
 		ArrayList<Node> cityList = new ArrayList<>();
 		int distanceMatrix[][];
-		String filename="D:\\cs\\code\\java\\TSP_baseline\\TSP_baseline\\src\\main\\java\\org\\example\\src\\data\\test-input-5.txt";
+		String filename="D:\\cs\\code\\java\\TSP_baseline\\src\\main\\java\\org\\example\\src\\data\\test-input-5.txt";
 
 		int numNodes = 0;  // Number of vertices in graph
 		int numEdges = 0;  // Number of edges in graph
