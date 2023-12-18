@@ -11,15 +11,14 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Node> cityList = new ArrayList<>();
-		int distanceMatrix[][];
-		String filename="D:\\cs\\code\\java\\TSP_baseline\\src\\main\\java\\org\\example\\src\\data\\test-input-5.txt";
+		double distanceMatrix[][];
 
 		int numNodes = 0;  // Number of vertices in graph
 		int numEdges = 0;  // Number of edges in graph
 
 		// Read input file line by line by using scanner
 		try {
-			Scanner scanner = new Scanner(new File(filename));
+			Scanner scanner = new Scanner(new File(Util.dataFilename));
 			while (scanner.hasNextLine()) {
 				// Clean white spaces
 				String cleanResult = Util.cleanInput(scanner.nextLine());
@@ -39,9 +38,9 @@ public class main {
 
 		numEdges = (numNodes*numNodes)-numNodes;
 
-		distanceMatrix = new int[numNodes][numNodes];
+		distanceMatrix = new double[numNodes][numNodes];
 
-		int distance = 0;
+		double distance = 0;
 
 		//creating distance matrix(weighted-adjacency)
 		for(int i=0; i<numNodes; i++) {
@@ -49,8 +48,9 @@ public class main {
 				// Create and edge if the vertices are different
 				if(i!=k) {
 					// Distance between i and k
-					distance = (int)Math.round(Math.sqrt(Math.pow(cityList.get(i).get_x()-cityList.get(k).get_x(), 2)+Math.pow(cityList.get(i).get_y()-cityList.get(k).get_y(), 2)));
-					// Add to the 2d distance matrix later used for prim algorithm
+//					distance = (int)Math.round(Math.sqrt(Math.pow(cityList.get(i).get_x()-cityList.get(k).get_x(), 2)+Math.pow(cityList.get(i).get_y()-cityList.get(k).get_y(), 2)));
+					distance = Util.calcDist(cityList.get(i), cityList.get(k));
+							// Add to the 2d distance matrix later used for prim algorithm
 					distanceMatrix[i][k] = distance;
 				}
 			}
@@ -79,14 +79,14 @@ public class main {
 		ArrayList<Integer> resultCircuit = graph.clearRepeatedCities(graph.get_eulerianCircuit());
 
 		//calculating path distance
-		int totalDistance = Util.calcTotalDistance(resultCircuit, distanceMatrix);
+		double totalDistance = Util.calcTotalDist(resultCircuit, distanceMatrix);
 
 		//writing through output
 		FileWriter fw = null;
 		BufferedWriter bw=null;
 		try {
 //			fw = new FileWriter(new File(filename.replace("input","output").replace("data", "result")));
-			fw = new FileWriter(filename.replace("input","output").replace("data", "result"));
+			fw = new FileWriter(Util.resultFilename);
 
 			bw = new BufferedWriter(fw);
 			bw.write("// totalDistance: " + totalDistance+"\n");
