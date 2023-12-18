@@ -2,10 +2,10 @@ package org.example.src;
 
 public class Node {
     private int _index;
-    private int _x;
+    private double _x;
     private double _y;
 
-    public Node(int index, int x, double y){
+    public Node(int index, double x, double y){
         _index = index;
         _x = x;
         _y = y;
@@ -19,11 +19,11 @@ public class Node {
         this._index = _index;
     }
 
-    public int get_x() {
+    public double get_x() {
         return _x;
     }
 
-    public void set_x(int _x) {
+    public void set_x(double _x) {
         this._x = _x;
     }
 

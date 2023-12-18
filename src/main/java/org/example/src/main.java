@@ -25,7 +25,10 @@ public class main {
 				String cleanResult = Util.cleanInput(scanner.nextLine());
 				String[] arr = cleanResult.split("\\s+");
 				// Adding to linked list
-				Node node = new Node(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), Double.parseDouble(arr[2]));
+				int index = Integer.parseInt(arr[0]);
+				double x = Double.parseDouble(arr[1]);
+				double y = Double.parseDouble(arr[2]);
+				Node node = new Node(index, x, y);
 				cityList.add(node);
 				numNodes++; // Increment the vertices
 			}
