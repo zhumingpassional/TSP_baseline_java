@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Util {
-    public static String dataFilename="D:\\cs\\code\\java\\TSP_baseline\\src\\main\\java\\org\\example\\src\\data\\test-input-1.txt";
+    public static String dataFilename="D:\\cs\\code\\java\\TSP_baseline_java\\src\\main\\java\\org\\example\\src\\data\\test-input-1.txt";
     public static String resultFilename = calcResultFilename(dataFilename);
 
 //    public static ArrayList<ArrayList<Double>> distanceMatrix;
